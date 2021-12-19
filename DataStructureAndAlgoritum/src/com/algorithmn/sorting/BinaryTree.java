@@ -1,4 +1,4 @@
-package com.tree;
+package com.algorithmn.sorting;
 
 public class BinaryTree {
 	private BinaryTreeNode root;

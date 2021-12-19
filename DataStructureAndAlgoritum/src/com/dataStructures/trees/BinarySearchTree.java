@@ -2,20 +2,20 @@ package com.dataStructures.trees;
 
 public class BinarySearchTree<T> extends AbstractTree<T> {
 
-	Node<T> root = null;
+	BinaryNode<T> root = null;
 
 	@Override
-	public Node<T> getRoot() {
+	public BinaryNode<T> getRoot() {
 		return root;
 	}
 	@Override
 	public boolean insert(Comparable<T> obj) {
-		Node<T> toInsert = new Node<T>(obj);
+		BinaryNode<T> toInsert = new BinaryNode<T>(obj);
 		if (root == null) {
 			root = toInsert;
 			return true;
 		}
-		Node<T> current = root;
+		BinaryNode<T> current = root;
 		while (true) {
 			if (current.getKey().compareTo((T) obj) < 0) {
 				if (current.getRight() == null) {
@@ -40,8 +40,8 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 
 	@Override
 	public boolean delete(Comparable<T> obj) {
-		Node<T> current = root;
-		Node<T> parent = null;
+		BinaryNode<T> current = root;
+		BinaryNode<T> parent = null;
 		boolean found = false;
 		while (current != null) {
 			if (current.getKey().compareTo((T) obj) < 0) {
@@ -80,9 +80,9 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 				// Find Minimum from right sub tree and copy the value to deleting node
 				// Delete the duplicate node from right sub tree
 				else {
-					Node<T> traverse = current.getRight().getLeft();
-					Node<T> minimimFromRightSubTree = current.getRight();
-					Node<T> parentOfMinimimFromRightSubTree = current;
+					BinaryNode<T> traverse = current.getRight().getLeft();
+					BinaryNode<T> minimimFromRightSubTree = current.getRight();
+					BinaryNode<T> parentOfMinimimFromRightSubTree = current;
 					while(traverse != null) {
 						parentOfMinimimFromRightSubTree = minimimFromRightSubTree;
 						minimimFromRightSubTree = traverse;
@@ -98,7 +98,7 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 
 	@Override
 	public boolean search(Comparable<T> obj) {
-		Node<T> current = root;
+		BinaryNode<T> current = root;
 		while (current != null) {
 			if (current.getKey().compareTo((T) obj) < 0) {
 				current = current.getRight();
@@ -112,29 +112,29 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 	}
 
 	@Override
-	public void traverseBFS(Node<T> node) {
+	public void printPreOrder(BinaryNode<T> node) {
 		if(node == null)
 			return;
-		traverseInOrder(node.getLeft());
+		PrintInOrder(node.getLeft());
 		System.out.println(node.getKey());
-		traverseInOrder(node.getRight());
+		PrintInOrder(node.getRight());
 	}
 
 	@Override
-	public void traverseInOrder(Node<T> node) {
+	public void PrintInOrder(BinaryNode<T> node) {
 		if(node == null)
 			return;
 		System.out.println(node.getKey());
-		traverseInOrder(node.getLeft());
-		traverseInOrder(node.getRight());
+		PrintInOrder(node.getLeft());
+		PrintInOrder(node.getRight());
 	}
 
 	@Override
-	public void traverseDFS(Node<T> node) {
+	public void PrintPostOrder(BinaryNode<T> node) {
 		if(node == null)
 			return;
-		traverseInOrder(node.getLeft());
-		traverseInOrder(node.getRight());
+		PrintInOrder(node.getLeft());
+		PrintInOrder(node.getRight());
 		System.out.println(node.getKey());
 	}
 
@@ -149,6 +149,6 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 		bst.insert(1);
 		bst.insert(170);
 		System.out.println(bst.search(170));
-		bst.traverseInOrder(bst.getRoot());
+		bst.PrintInOrder(bst.getRoot());
 	}
 }

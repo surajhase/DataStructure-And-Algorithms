@@ -1,8 +1,8 @@
-package com.sorting;
+package com.algorithmn.sorting;
 
 public class InsertionSort {
 	public static void main(String[] args) {
-		int[] arr = { 12, 54, 65, 7, 23, 9 };
+		int[] arr = { 6, 5, 3, 1, 8, 7, 2, 4 };
 		//int[] arr = { 1, 2, 3, 4, 5, 6 };
 		System.out.println("Before Insertion sort");
 		printArray(arr);

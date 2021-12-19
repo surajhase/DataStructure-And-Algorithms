@@ -1,23 +1,23 @@
-package com.sorting;
+package com.algorithmn.sorting;
 
-import com.sorting.SinglyLinkedList.Node;
+import com.dataStructures.linkedList.SinglyLinkedList;
+import com.dataStructures.linkedList.SinglyLinkedList.Node;
 
 public class InsertionSortUsingSinglyList {
 	public static void main(String[] args) {
 		SinglyLinkedList list = new SinglyLinkedList();
-
-		list.add(12);
-		list.add(54);
-		list.add(65);
-		list.add(7);
-		list.add(23);
-		list.add(9);
-//		list.add(1);
-//		list.add(2);
-//		list.add(3);
-//		list.add(4);
-//		list.add(5);
-//		list.add(6);
+		list.insert(12);
+		list.insert(54);
+		list.insert(65);
+		list.insert(7);
+		list.insert(23);
+		list.insert(9);
+//		list.insert(1);
+//		list.insert(2);
+//		list.insert(3);
+//		list.insert(4);
+//		list.insert(5);
+//		list.insert(6);
 		System.out.println("Before Insertion sort");
 		list.display();
 		list = insertionSort(list);

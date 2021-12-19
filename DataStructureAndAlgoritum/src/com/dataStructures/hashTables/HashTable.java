@@ -4,22 +4,22 @@ public class HashTable {
 
 	public static void main(String[] args) throws Exception {
 		HashTable table = new HashTable();
-		table.insert("Suraj", "Me");
-		table.insert("Punam", "Me");
+		table.insert("Example Of Hash Table", "Test");
+		table.insert("Example Of Hash Table 1", "Test");
 		System.out.println(table.size());
-		table.insert("Suraj", "Myself");
+		table.insert("Example Of Hash Table", "Myself");
 		System.out.println(table.size());
-		System.out.println(table.get("Suraj"));
-		System.out.println(table.get("Punam"));
-		System.out.println(table.delete("Punam"));
+		System.out.println(table.get("Example Of Hash Table"));
+		System.out.println(table.get("Example Of Hash Table 1"));
+		System.out.println(table.delete("Example Of Hash Table 1"));
 		System.out.println(table.size());
-		System.out.println(table.get("Punam"));
+		System.out.println(table.get("Example Of Hash Table 1"));
 		
 		for(int i=0;i<15;i++) {
 			table.insert(Integer.valueOf(i), "Test");
 		}
 		System.out.println(table.size());
-		table.insert("Punam", "Me");
+		table.insert("Example Of Hash Table 1", "Me");
 	}
 
 	int size = 0;

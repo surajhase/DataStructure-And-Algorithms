@@ -2,13 +2,31 @@ package com.dataStructures.linkedList;
 
 public class SinglyLinkedList {
 	// Represent a node of the singly linked list
-	class Node {
+
+	public class Node {
 		int data;
+
 		Node next;
 
 		public Node(int data) {
 			this.data = data;
 			this.next = null;
+		}
+
+		public int getData() {
+			return data;
+		}
+
+		public void setData(int data) {
+			this.data = data;
+		}
+
+		public Node getNext() {
+			return next;
+		}
+
+		public void setNext(Node next) {
+			this.next = next;
 		}
 	}
 
@@ -16,6 +34,30 @@ public class SinglyLinkedList {
 	public Node head = null;
 	public Node tail = null;
 	int size = 0;
+
+	public Node getHead() {
+		return head;
+	}
+
+	public void setHead(Node head) {
+		this.head = head;
+	}
+
+	public Node getTail() {
+		return tail;
+	}
+
+	public void setTail(Node tail) {
+		this.tail = tail;
+	}
+
+	public int getSize() {
+		return size;
+	}
+
+	public void setSize(int size) {
+		this.size = size;
+	}
 
 	// addNode() will add a new node to the list
 	public void insert(int data) {
