@@ -1,5 +1,7 @@
 package com.dataStructures.trees;
 
+import com.algorithmn.searching.DepthFirstSearch;
+
 public class BinarySearchTree<T> extends AbstractTree<T> {
 
 	BinaryNode<T> root = null;
@@ -8,6 +10,7 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 	public BinaryNode<T> getRoot() {
 		return root;
 	}
+
 	@Override
 	public boolean insert(Comparable<T> obj) {
 		BinaryNode<T> toInsert = new BinaryNode<T>(obj);
@@ -83,7 +86,7 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 					BinaryNode<T> traverse = current.getRight().getLeft();
 					BinaryNode<T> minimimFromRightSubTree = current.getRight();
 					BinaryNode<T> parentOfMinimimFromRightSubTree = current;
-					while(traverse != null) {
+					while (traverse != null) {
 						parentOfMinimimFromRightSubTree = minimimFromRightSubTree;
 						minimimFromRightSubTree = traverse;
 						traverse = traverse.getLeft();
@@ -111,33 +114,6 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 		return false;
 	}
 
-	@Override
-	public void printPreOrder(BinaryNode<T> node) {
-		if(node == null)
-			return;
-		PrintInOrder(node.getLeft());
-		System.out.println(node.getKey());
-		PrintInOrder(node.getRight());
-	}
-
-	@Override
-	public void PrintInOrder(BinaryNode<T> node) {
-		if(node == null)
-			return;
-		System.out.println(node.getKey());
-		PrintInOrder(node.getLeft());
-		PrintInOrder(node.getRight());
-	}
-
-	@Override
-	public void PrintPostOrder(BinaryNode<T> node) {
-		if(node == null)
-			return;
-		PrintInOrder(node.getLeft());
-		PrintInOrder(node.getRight());
-		System.out.println(node.getKey());
-	}
-
 	public static void main(String[] args) {
 		BinarySearchTree<Integer> bst = new BinarySearchTree<Integer>();
 		bst.insert(9);
@@ -149,6 +125,13 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 		bst.insert(1);
 		bst.insert(170);
 		System.out.println(bst.search(170));
-		bst.PrintInOrder(bst.getRoot());
+
+		DepthFirstSearch<Integer> dfs = new DepthFirstSearch<Integer>();
+		System.out.println("In order Traversal");
+		System.out.println(dfs.dfsForBinaryTreeInOrder(bst.getRoot(), null));
+		System.out.println("Pre order Traversal");
+		System.out.println(dfs.dfsForBinaryTreePreOrder(bst.getRoot(), null));
+		System.out.println("Post order Traversal");
+		System.out.println(dfs.dfsForBinaryTreePostOrder(bst.getRoot(), null));
 	}
 }
