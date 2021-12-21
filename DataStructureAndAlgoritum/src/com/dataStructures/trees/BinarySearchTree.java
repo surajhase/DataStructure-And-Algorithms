@@ -1,5 +1,6 @@
 package com.dataStructures.trees;
 
+import com.algorithmn.searching.BredthFirstSearch;
 import com.algorithmn.searching.DepthFirstSearch;
 
 public class BinarySearchTree<T> extends AbstractTree<T> {
@@ -126,6 +127,11 @@ public class BinarySearchTree<T> extends AbstractTree<T> {
 		bst.insert(170);
 		System.out.println(bst.search(170));
 
+		
+		BredthFirstSearch<Integer> bfs = new BredthFirstSearch<Integer>();
+		System.out.println("BFS order Traversal");
+		System.out.println(bfs.bfsForBinaryTree(bst.getRoot()));
+		
 		DepthFirstSearch<Integer> dfs = new DepthFirstSearch<Integer>();
 		System.out.println("In order Traversal");
 		System.out.println(dfs.dfsForBinaryTreeInOrder(bst.getRoot(), null));
