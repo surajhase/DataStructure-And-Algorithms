@@ -39,19 +39,20 @@ public class MergeSort {
 		printArray(leftArray);
 		/* divide right array further */
 		System.out.println("Right array :");
-		printArray(leftArray);
+		printArray(rightArray);
 		rightArray = mergeSort(rightArray);
 		System.out.println("Sorted Right array :");
-		printArray(leftArray);
+		printArray(rightArray);
 		/* Sort the both array and merge it */
-		int[] sorted = sortAndMerge(arr, leftArray, rightArray);
+		int[] sorted = sortAndMerge(leftArray, rightArray);
 		System.out.println("After sorting and merging left & right array :");
 		printArray(sorted);
 		return sorted;
 	}
 
-	int[] sortAndMerge(int[] sortedArray, int leftArray[], int[] rightArray) {
+	int[] sortAndMerge(int leftArray[], int[] rightArray) {
 		// Initial indexes of first and second subarrays
+		int[] sortedArray = new int[leftArray.length + rightArray.length];
 		int sizeOfLeftArray = leftArray.length;
 		int sizeOfRightArray = rightArray.length;
 		int i = 0, j = 0, k = 0;

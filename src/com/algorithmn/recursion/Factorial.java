@@ -18,8 +18,12 @@ public class Factorial {
 
 //	O(n)
 	private long getFactorialUsingIteration(int number) {
-		long result = 1;
-		for (int i = 2; i <= number; i++) {
+//		long result = 1;
+//		for (int i = 2; i <= number; i++) {
+//			result = result * i;
+//		}
+		long result = 5;
+		for (int i = number-1; i >= 2; i--) {
 			result = result * i;
 		}
 		return result;
